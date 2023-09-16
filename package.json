@@ -4,7 +4,9 @@
   "description": "Namaste React by Kavya bhat",
 
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "parcel Episode-3/index.html",
+    "build":"parcel build Episode-3/index.html"
   },
   "repository": {
     "type": "git",

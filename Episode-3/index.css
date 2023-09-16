@@ -1,0 +1,27 @@
+#heading{
+    color:red;
+}
+.Container{
+    background:mediumaquamarine;
+
+}
+.img{
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+}
+.input {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 45px;
+    margin-right: 500px;
+    font-size: 17px;
+   
+  }
+  .signin{
+    position: absolute;
+    height: 20px;
+    left: 1150px;
+    margin: 46px;
+  }

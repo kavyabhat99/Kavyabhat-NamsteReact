@@ -1,0 +1,40 @@
+1.what is JSX?
+--> JSX is Javascript xml it helps in writing  html like syntax in Javascript
+
+2. Super power of JSX?
+-->Combines JavaScript and HTML: 
+JSX allows you to write JavaScript and HTML-like markup together,
+ making it easy to create dynamic user interfaces in React.
+
+Readability: 
+JSX code is highly readable and resembles HTML, 
+making it easier for developers to understand and maintain their code.
+
+Component Composition: 
+JSX supports the creation of reusable components, 
+helping developers build complex UIs by combining smaller, self-contained pieces.
+
+Performance: 
+JSX is optimized for performance, 
+and React uses a virtual DOM to efficiently update only the parts of the UI that have changed,
+reducing unnecessary DOM manipulation.
+
+Ecosystem: 
+JSX is widely adopted in the React ecosystem, 
+with a large community and a wealth of libraries and tools available to enhance development.
+
+3.Role of type attribute in script tag? what options can I use there?
+-->
+The type attribute in a <script> tag specifies the scripting language 
+or media type of the embedded code. Common options include:
+
+text/javascript (default): Specifies JavaScript code.
+text/ecmascript: Specifies ECMAScript (JavaScript) code.
+application/javascript: Identifies JavaScript code.
+module: Indicates that the script is an ES6 module.
+
+Using the appropriate type attribute ensures the browser interprets the script correctly. 
+In modern JavaScript, using type="module" is common for ES6 modules.
+
+4.{Title}vs{<Title/>}vs{<Title><Title/>} in JSX?
+--> All are same.
