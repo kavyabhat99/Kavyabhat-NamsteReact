@@ -1,0 +1,472 @@
+1. is JSX mandatory for React?
+--> No, JSX is not mandatory for React, but it is highly recommended and 
+widely used for building React applications because it simplifies UI development 
+and enhances code readability. However, you can also write React code using pure 
+JavaScript without JSX, but it can become less intuitive and more verbose for complex user interfaces.
+
+2. is ES6 mandatory for React ?
+-->ES6 (ECMAScript 2015) is not mandatory for React, 
+but it is highly recommended and commonly used. React development is greatly facilitated 
+by ES6 features such as classes, arrow functions, and the module system. 
+Using ES6 can make your code more concise and easier to understand, 
+so it's considered best practice when working with React. However, 
+you can still build React applications using older JavaScript versions if needed.
+
+3.How can I write commoents in  jsx?
+--> // This is a single-line comment in JSX
+    {/* 
+  This is a
+  multi-line comment
+  in JSX
+*/}
+
+
+4. what is React fragments? and <></>?
+--> React Fragments provide a way to group multiple elements without 
+adding an extra parent element to the DOM. They are particularly useful 
+when you need to return multiple elements from a component, but you don't want 
+to introduce an additional container element in the rendered output. 
+React Fragments help improve the structure and cleanliness of your JSX code.
+Traditionally, you could use React Fragments with the <React.Fragment> component or 
+the shorthand syntax <>...</>. 
+
+5.what is Virtual DOM?
+--> The Virtual DOM (VDOM) is a programming concept used in libraries and frameworks like React.
+It's a lightweight copy of the actual DOM (Document Object Model) in memory.
+React uses the VDOM to optimize and efficiently update the real DOM.
+Instead of directly manipulating the DOM for every change, React first updates the VDOM 
+and then calculates the minimal set of changes needed to update the actual DOM, 
+reducing performance bottlenecks and improving the user experience.
+
+6.what is Reconcilation in React?
+--> Reconciliation in React is the process of updating the Virtual DOM and 
+determining the most efficient way to apply those updates to the actual DOM.
+When state or props change in a React component, React needs to figure out which parts 
+of the Virtual DOM have changed and need to be updated in the real DOM.
+React's reconciliation algorithm is responsible for efficiently making these updates. 
+It identifies the differences (or "diffs") between the previous Virtual DOM state and the new state, 
+and then applies only the necessary changes to the actual DOM. 
+This process helps optimize performance by minimizing the number of DOM manipulations required.
+reconciliation ensures that React components reflect the current application state accurately
+and efficiently, providing a smooth user experience.
+
+7. what is React fiber?
+--> React Fiber is a reimplementation of React's core algorithm for rendering and updating
+user interfaces. It's designed to be more efficient and capable of handling complex 
+and asynchronous operations while maintaining a responsive and smooth user experience.
+React Fiber forms the foundation for features like asynchronous rendering,
+better performance, and improved control over rendering priorities in React applications. 
+It allows React to work on different platforms, including web and mobile, and makes it more 
+adaptable for future innovations in user interface development.
+
+8. why do we need keys in React and when do we need keys in React ?
+--> In React, keys are used to uniquely identify and track components or 
+elements in a list when rendering dynamic content. They are needed to optimize 
+and maintain the state of components during updates.
+Keys are essential in situations where you have lists of elements that may change over time, 
+such as when adding, removing, or reordering items in a list. 
+Keys help React efficiently update and reconcile the DOM, ensuring that it reflects the changes
+in the component's state accurately.
+
+9. can we use index as key in React ?
+--> While it's possible to use the array index as a key in React,
+it's generally not recommended, especially if the list items can change over time 
+(e.g., items are added, removed, or reordered). Using index as a key may lead to performance
+and rendering issues, as React relies on key uniqueness and stability for efficient updates.
+It's better to use a unique and stable identifier for each list item whenever possible to avoid 
+potential problems.
+
+10. what is props in React and ways to?
+--> In React, "props" (short for "properties") are a way to pass data from a parent
+component to a child component. Props are read-only and allow you to configure and 
+customize child components. They are an essential mechanism for building reusable and composable
+components in React.
+
+// ParentComponent.js
+import React from 'react';
+import ChildComponent from './ChildComponent';
+
+function ParentComponent() {
+  const data = "Hello, child!";
+  return <ChildComponent message={data} />;
+}
+
+// ChildComponent.js
+import React from 'react';
+
+function ChildComponent(props) {
+  return <p>{props.message}</p>;
+}
+
+// ChildComponent.js
+import React from 'react';
+
+function ChildComponent({message}) {
+  return <p>{message}</p>;
+}
+
+// ChildComponent.js
+import React from 'react';
+
+function ChildComponent(props) {
+    const {mesaage} = props;
+  return <p>{message}</p>;
+}
+
+
+11.what is config driven UI?
+--> A config-driven UI (User Interface) is a design approach where the structure, 
+behavior, and appearance of a user interface are determined by configuration settings or data,
+rather than hardcoding them into the application's code. This allows for more flexible
+and dynamic interfaces that can be easily customized or adapted without the need for extensive 
+code changes. It's often used in systems where different configurations may be needed for various users,
+environments, or use cases.
+
+
+Config-Driven UI:
+Config-driven UI, short for "configuration-driven user interface,"
+is an approach where the behavior and appearance of a user interface are defined and 
+controlled through configuration files or data rather than hardcoding them in the application's
+source code. This approach allows developers to make UI changes without modifying the code,
+making it more flexible and customizable. Config-driven UI often involves specifying aspects
+like layout, styles, and business rules through configuration settings.
+
+Server-Driven UI:
+Server-driven UI, also known as "dynamic UI" or "remote rendering," is an approach where
+the user interface elements and their content are generated and delivered 
+by a server or backend service. In this approach, the client-side application 
+requests UI components and data from the server, and the server dynamically
+ constructs the UI based on the current application state or user context. 
+ This can be particularly useful for building responsive and personalized 
+ user interfaces, as changes can be made on the server-side without requiring 
+ client-side code updates.
+
+In summary, while both config-driven UI and server-driven UI aim to make user interfaces more flexible
+and adaptable, they differ in how they achieve this:
+Config-driven UI relies on configuration files or data to control the UI's behavior and appearance, 
+often on the client side.
+Server-driven UI generates and serves UI components and data from a server or backend,
+enabling dynamic and remote updates to the UI.
+
+12. what is the diff between Named export and Default export?
+--> Named export allows you to export multiple variables or functions from a file,
+ while Default export is used to export a single variable, function, or class as the default 
+ export from a file. You can have multiple named exports in a single file, but only one default export.
+
+ 13.what is the importance of config.js file?
+ --> In UI development, a config.js file is crucial for centralizing customizable settings like
+  styles, themes, language preferences, and feature toggles. 
+  It ensures consistent design, simplifies localization, and facilitates responsive layouts 
+  for different devices. This file aids in efficient testing and debugging while providing 
+  adaptability and maintainability to the UI.
+
+  14.what are React hooks?
+  -->React hooks are functions in React that allow functional components to manage state, 
+  perform side effects, and access React features. They were introduced in React 16.8 to provide
+   capabilities similar to class components within functional components.
+
+  15.why do we need usestate hook?
+   We need the useState hook in React to add and manage state in functional components,
+   enabling them to dynamically update and re-render based on user interactions or data changes.
+
+16. what is Microservice?
+--> A microservice is a small, independent piece of software that performs a specific function 
+within an application. It operates autonomously, communicates with other services through well-defined
+interfaces, and can be developed, deployed, and scaled independently.
+
+17. what is Monolith architecture ? 
+--> Monolith architecture is a traditional software design where an entire application is built
+as a single, self-contained unit. All components and functionalities are tightly integrated,
+making it more challenging to modify or scale specific parts independently.
+
+18. diff between Monolith and Microservices ?
+--> Monolith:
+Single, self-contained application.
+All components tightly integrated.
+Modifications can be complex.
+Scaled as a whole.
+
+Microservices:
+Application broken into small, independent services.
+Loosely coupled, communicate via APIs.
+Easier modification and scaling of specific services.
+Allows for technology diversity.
+
+
+19. why do we need useSffect Hook?
+--> The useEffect hook is a fundamental part of React functional components.
+It is used to manage side effects in your components. 
+Side effects are operations or interactions that occur in your component that are not related
+to rendering, such as data fetching, DOM manipulation, or subscribing to external data sources.
+Here are some reasons why you might need to use the useEffect hook:
+Data Fetching: You can use useEffect to fetch data from APIs or databases
+ when your component mounts or when certain dependencies change.
+DOM Manipulation: If you need to interact with the DOM, like adding or removing elements, 
+you can use useEffect to perform these operations after the component renders.
+Subscriptions: When working with real-time data sources like websockets or event emitters,
+useEffect allows you to subscribe to events and clean up subscriptions when the component unmounts.
+Lifecycle Events: useEffect replicates lifecycle events from class components like
+ componentDidMount, componentDidUpdate, and componentWillUnmount in functional components.
+Dependency Tracking: You can specify dependencies for useEffect, 
+and it will re-run the effect whenever those dependencies change. 
+This ensures that your side effects stay in sync with your component's state.
+Asynchronous Code: It's often used with asynchronous operations to manage the timing 
+of when code should execute in response to state changes.
+
+20. what is optional chaining ?
+--> Optional chaining is a feature in modern programming languages,
+ including JavaScript and TypeScript, that allows you to safely access properties or call methods 
+ on objects without having to explicitly check if intermediate values are null or undefined.
+It helps prevent errors and simplifies code when dealing with nested objects or properties 
+that may or may not exist.
+
+21. what is shimmer UI?
+--> A shimmer UI is a visual effect used in apps and websites to indicate that content is loading.
+ It involves displaying animated placeholder elements that mimic the appearance of actual content,
+  providing users with feedback and reducing frustration during loading times.
+
+22. what is the diff between JS expression and JS statement?
+--> the main difference is that expressions produce values, while statements perform actions
+ or control the program's flow. In JavaScript, you can often use expressions within statements, 
+ like using an expression in an assignment statement or a conditional statement that 
+ checks an expression's value. Understanding the distinction between expressions and statements
+  is crucial for writing effective and readable JavaScript code.
+
+  23. what is conditional rendering?
+--> 
+Conditional rendering in programming refers to the practice of displaying different UI elements 
+or content based on certain conditions or criteria. It allows for dynamic and 
+interactive user interfaces by showing or hiding elements based on the state of 
+the application or user interactions.
+
+Types of Conditional Rendering:
+Conditional Statements (if-else):
+Using if, else if, and else statements to conditionally render content based on a boolean condition.
+if (condition) {
+  // Render this content
+} else {
+  // Render alternative content
+}
+Ternary Operator:
+A concise way to conditionally render content using a single expression.
+condition ? <ComponentA /> : <ComponentB />
+Switch Statements:
+A structured way to conditionally render content based on multiple possible values.
+switch (value) {
+  case 'A':
+    return <ComponentA />;
+  case 'B':
+    return <ComponentB />;
+  default:
+    return <DefaultComponent />;
+}
+Logical && Operator:
+Using the logical AND (&&) operator to conditionally render content based on a boolean condition.
+{condition && <Component />}
+
+23. what is CORS?
+--> CORS (Cross-Origin Resource Sharing) is a security mechanism in web browsers 
+that controls how web pages from one domain can request and interact with resources 
+hosted on another domain. It helps prevent unauthorized cross-site requests and promotes web security.
+
+24.what is async await ?
+--> async/await is a feature in modern JavaScript used to work with asynchronous operations
+ in a more synchronous and readable manner. The async keyword is used to define a function as
+asynchronous, allowing it to use await to pause execution until a promise is resolved or rejected.
+This simplifies asynchronous code and makes it appear more like traditional synchronous code.
+
+25. what is the use of const json = await data.json()?
+--> The line const json = await data.json() is used to asynchronously fetch and parse JSON data from
+ a response (data) obtained from a network request, making it accessible as a JavaScript object (json)
+  for further processing in your code.
+
+26. what are various ways to add images in your app?
+--> HTML <img> Element: Use the <img> tag to display images in HTML.
+CSS Background Images: Set images as backgrounds using CSS.
+SVG Images: Embed scalable vector graphics directly in your HTML.
+Image Components (React, Vue, Angular): Use framework-specific components or directives
+ to display images.
+Background Images in CSS Frameworks: Utilize classes or components provided by CSS frameworks.
+Image Hosting Services: Store images on third-party services (e.g., Amazon S3, Cloudinary)
+ and link to them.
+
+ 27. console.log(useState())?
+ -->useState is a React hook used to manage state in functional components.
+  It returns an array with two elements: the current state value and a function 
+  to update that state value.
+When you call console.log(useState()),
+ it's essentially logging the entire array returned by useState() to the console.
+The output of console.log(useState()) will show you the initial state
+value and the state update function. For example, it might look something like this:
+[initialStateValue, setStateFunction]
+Where initialStateValue is the initial value of your state variable,
+ and setStateFunction is the function you use to update that state.
+
+ 28. how will useEffect behave  if we dont add dependency array ?
+ --> If you don't provide a dependency array in useEffect, it will run on every render, 
+ potentially causing performance issues, infinite loops, and unnecessary network requests.
+  It's important to specify dependencies to control when the effect should run.
+  An empty dependency array [] will make the effect run only once, similar to componentDidMount.
+
+  29. what is SPA?
+  --> SPA stands for Single Page Application.
+   It's a web application or website that loads and dynamically updates its content 
+   on a single web page, providing a seamless and fluid user experience without requiring 
+   full page reloads. SPAs often use client-side JavaScript frameworks like React, 
+   Angular, or Vue.js to manage routing and handle data retrieval and rendering.
+
+30. what is the diff between client side routing and server side routing ?
+--> Client-side routing:
+ Routing is handled by JavaScript in the user's browser. 
+ It updates content without full page reloads, resulting in faster navigation but 
+ potentially less SEO-friendly.
+Server-side routing: 
+Routing is handled by the server. 
+It requires full page reloads for each view,
+potentially slower navigation but better SEO.
+
+31. how do you create Nested routes in React?
+--> import React from 'react'
+import ReactDOM from 'react-dom/client';
+import Header from './components/Header';
+import Body from './components/Body';
+import { createBrowserRouter,Outlet,RouterProvider } from 'react-router-dom';
+import About from './components/About';
+import Contact from './components/Contact';
+import Error from './components/Error';
+import ResMenu from './components/ResMenu';
+import Login from './components/login';
+
+const AppLayout = () => {
+    return (
+        <div className="app">
+            <Header />
+            <Outlet/>
+        </div>
+    )
+
+}
+
+const appRouter = createBrowserRouter(
+    [
+        {
+            path:"/",
+            element:<AppLayout/>,
+            children:[
+                {
+                    path:"/",
+                    element:<Body/>
+                },
+                {
+                    path:"/about",
+                    element:<About/>
+                },
+                {
+                    path:"/contact",
+                    element:<Contact/>
+                },
+                {
+                    path:"/login",
+                    element:<Login/>
+                },
+                {
+                    path:"/restaurents/:resId",
+                    element:<ResMenu/>
+                }
+            ],
+            errorElement:<Error/>
+        },
+    ]
+)
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<RouterProvider router={appRouter}/>);
+   
+32. create hash Router and create memory router ? 
+--> 
+HashRouter:
+
+Import HashRouter from react-router-dom.
+Wrap your top-level component with HashRouter.
+
+import { HashRouter, Route, Switch } from 'react-router-dom';
+
+function App() {
+  return (
+    <HashRouter>
+      <Switch>
+        <Route path="/" component={Home} />
+        {/* Add more routes here */}
+      </Switch>
+    </HashRouter>
+  );
+}
+HashRouter uses the URL hash (e.g., #) to manage routing,
+making it suitable for single-page applications without server-side rendering.
+
+MemoryRouter:
+Import MemoryRouter from react-router-dom.
+Wrap your top-level component with MemoryRouter.
+
+import { MemoryRouter, Route, Switch } from 'react-router-dom';
+
+function App() {
+  return (
+    <MemoryRouter>
+      <Switch>
+        <Route path="/" component={Home} />
+        {/* Add more routes here */}
+      </Switch>
+    </MemoryRouter>
+  );
+}
+MemoryRouter keeps the application's navigation history in memory,
+ which is useful for testing and serverless environments where there's no browser history API.
+
+33. order of lifecycle methods in class based components?
+ In class-based components, the lifecycle methods are executed in the following order:
+
+Mounting Phase:
+constructor(): Initializes state and binds event handlers.
+static getDerivedStateFromProps(): Rarely used, 
+but can be used to update state based on props changes.
+render(): Returns JSX to render on the screen.
+componentDidMount(): Invoked once after the component and its children have been 
+rendered to the DOM. Ideal for data fetching or subscriptions.
+
+Updating Phase:
+static getDerivedStateFromProps(): Used to update state based on props changes.
+shouldComponentUpdate(): Allows you to control if the component should
+ re-render or not based on the new props or state.
+render(): Re-renders the component.
+getSnapshotBeforeUpdate(): Captures information from the DOM before it's potentially changed.
+componentDidUpdate(): Invoked after the component's updates are flushed to the DOM.
+ Ideal for managing side effects or additional data fetching.
+
+Unmounting Phase:
+componentWillUnmount(): Invoked immediately before a component is unmounted and destroyed.
+ Ideal for cleanup tasks.
+Error Handling Phase:
+static getDerivedStateFromError(): Used to update state in response to an error during rendering.
+componentDidCatch(): Invoked after an error has been thrown by a descendant component.
+ Used to log error information.
+
+ 34. why do we need component did mount ?
+ --> componentDidMount, you ensure that data fetching occurs after the component is mounted
+  and before it's displayed to the user, resulting in a smoother and more efficient user experience.
+
+35. why we use component willunmount ?
+--> if we add a setintrvel need to clear it other wise it never stops 
+such clean ups can be done in unmounting phase.
+
+36. why do we use super(props) in constructor?
+--> In React class-based components, super(props) in the constructor initializes the parent class 
+(Component) and allows access to component props and enables proper component initialization.
+
+37.why cant we have callback function of useEffect asyc?
+--> The callback function in useEffect cannot be asynchronous because it can lead to unpredictable 
+behavior and potential issues with cleanup. Asynchronous functions return Promises, 
+which could cause problems when React tries to clean up effects. 
+Therefore, React expects cleanup functions to be synchronous to ensure proper cleanup 
+and avoid potential memory leaks or stale references. If you need to perform asynchronous 
+tasks inside useEffect, you can do so by using async functions inside the effect itself, 
+but not in the cleanup function.
